@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>SOOON.regs</title>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="form-group" style="text-align: center">
+        <h1 class="text">Регистрация</h1>
+    </div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger form-group" style="margin-left: auto; margin-right: auto; width: 30em">
+                {{ messages[0] }} Перейти на <a href="{{ url_for('login') }}">страницу входа</a>.
+            </div>
+        {% endif %}
+    {% endwith %}
+    <form method="post" action="/regs">
+        <div class="form-group" style="margin-left: auto; margin-right: auto; width: 30em">
+            <label for="email">Email адрес</label>
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                   placeholder="Введите email"><br>
+            <small id="emailHelp" class="form-text text-muted" style="margin-top: 0px">Мы никогда никому не передадим вашу электронную почту.</small>
+        </div>
+        <div class="form-group" style="margin-left: auto; margin-right: auto; width: 30em">
+            <label for="password">Пароль</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль"><br>
+            <small id="passwordHelp" class="form-text text-muted" style="margin-top: 0px">Пароль должен быть сложным и состоять из более 8 символов.</small>
+        </div>
+        <div class="form-group" style="margin-left: auto; margin-right: auto; width: 30em">
+            <label for="login">Логин</label>
+            <input type="text" class="form-control" name="login" id="login" placeholder="Введите логин"><br>
+            <small id="loginhelp" class="form-text text-muted" style="margin-top: 0px">Введите имя, которое будет отображаться у других
+                пользователей.</small>
+        </div>
+        <div class="form-group" style="margin-left: auto; margin-right: auto; width: 30em">
+            <button type="submit" class="btn btn-outline-dark">Зарегистрироваться</button>
+            <a style="margin-left: 30px" href="/login">Уже есть аккаунт</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

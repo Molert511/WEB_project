@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+    SOOON.saved
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        {% if authed %}
+            <div class="container mt-5">
+                <h2>Проекты моих друзей</h2>
+                {% for key, el in res.items() %}
+                    <div class="card w-75 mt-5">
+                        <div class="card-header">
+                            {{ el['creator'] }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ el['title'] }}</h5>
+                            <p class="card-text">{{ el['contents'] }}</p>
+                            {% if key not in user_projects %}
+                                <form method="POST" action="/projects_add">
+                                    <input type="hidden" value="{{ key }}" name="project">
+                                    <button type="submit" class="btn btn-outline-dark">Присоединиться</button>
+                                </form>
+                            {% else %}
+                                <a href="/project_messages?project_id={{ key }}"
+                                   class="btn btn-outline-dark">Обсудить</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block title %}
+    SOON.friends
+{% endblock %}
+
+{% block body %}
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background: #fff;
+            }
+
+            .chat_wrapper {
+                width: 50%;
+                height: 80vh;
+                margin-top: 10vh;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin-left: 25%;
+                position: absolute;
+                background: #0e1621;
+                box-shadow: 0px 0px 9px 0px rgba(34, 60, 80, 0.2);
+                border-radius: 7px;
+                overflow-y: scroll;
+                font-family: 'Ubuntu';
+                font-size: 14px;
+                z-index: 1;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                padding: 10px;
+            }
+
+            .messages {
+                /*display: block;*/
+                /*height: 100%;*/
+            }
+
+            .message {
+                width: 80%;
+                padding: 15px;
+                border-radius: 12px;
+                margin-top: 10px;
+                margin-left: 48px;
+                margin-right: 10px;
+                color: #fff;
+            }
+
+            .message.foreign:after {
+                content: '';
+                display: block;
+                height: 32px;
+                width: 32px;
+                /*position: absolute;*/
+                border-radius: 100%;
+                background: #fff;
+                margin-left: -56px;
+                margin-top: -32px;
+            }
+
+            .message.foreign {
+                background: #182533;
+                float: left;
+                border-bottom-left-radius: 0;
+            }
+
+            .message.my {
+                background: #2b5278;
+                float: right;
+                border-bottom-right-radius: 0;
+                text-align: right;
+            }
+
+            .post {
+                height: 50px;
+                width: 50%;
+                padding: 15px 20px;
+                margin-top: 15px;
+                padding-bottom: 0;
+                border: none;
+                outline: none;
+                background: #182533;
+                color: #f4f4f4;
+                font-family: 'Ubuntu';
+                font-size: 13px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin-left: 25%;
+                margin-bottom: calc(10vh - 47px);
+                z-index: 2;
+                border-bottom-left-radius: 10px;
+            }
+
+            .post::placeholder {
+                color: #4f5b67;
+                font-size: 16px;
+            }
+
+            .message.foreign .from {
+                font-size: 10px;
+                color: #aaa;
+                position: absolute;
+                margin-top: -12px;
+                font-family: Ubuntu;
+            }
+
+
+        </style>
+    </head>
+    <body>
+    <div class="chat_wrapper">
+        {% for el in chat %}
+            {% if el.user == username %}
+                <div class="my message">
+                    {{ el.contents }}
+                </div>
+            {% else %}
+                <div class="foreign message">
+                    <div class="from">{{ second_user }}</div>
+                    {{ el.contents }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <form action="/friends_messages" method="POST">
+        <input name="second_user" type="hidden" value={{ second_user }}>
+        <textarea class="post" name="message" placeholder="Write a message..."></textarea>
+    </form>
+
+    <script>
+        window.onload = function () {
+            var div = document.querySelector(".chat_wrapper");
+            div.scrollTop = div.scrollHeight;
+
+            function runOnKeys(obj, func) {
+                let control = false;
+                obj.addEventListener('keydown', function (event) {
+                    if (event.key == "Control") control = true;
+                    if (event.key == "Enter") {
+                        if (!control) func(); else document.querySelector('.post').value += "\n";
+                    }
+                });
+
+                obj.addEventListener('keyup', function (event) {
+                    if (event.key == "Control") control = false;
+                });
+
+            }
+
+            runOnKeys(document.querySelector('.post'), () => {
+                document.querySelector('form').submit();
+            });
+
+
+        }
+    </script>
+    </body>
+    </html>
+{% endblock %}

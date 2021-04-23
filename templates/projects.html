@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}
+    SOOON.projects
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <a class="btn btn-outline-dark" href="/create_projects" role="button">Создать новый проект</a>
+        <form method="POST" action="/projects">
+            <div class="form-group">
+                <div style="display: flex; margin-top: 50px">
+                    <label for="title"><big>Поиск проектов</big></label>
+                </div>
+                <div style="display: flex">
+                    <input type="text" class="form-control" name="title" id="title" placeholder="Поиск..."
+                           style="width: auto; min-width: 50vw" value="{{ search }}">
+                    <div style="flex: 1"></div>
+                </div>
+                <div style="display: flex">
+                    <small id="emailHelp" class="form-text text-muted">Введите название проекта в котором вы хотели бы
+                        участвовать</small>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container mt-5">
+        {% if user_projects %}
+            <h2 style="margin-top: 30px">Мои проекты</h2>
+            {% for key, el in projects_list.items() %}
+                {% if key in user_projects %}
+                    <div class="mt-5">
+                        <div class="card w-75">
+                            <div class="card-header">
+                                {{ el['creator'] }}
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ el['title'] }}</h5>
+                                <p class="card-text">{{ el['contents'] }}</p>
+                                <a href="/project_messages?project_id={{ key }}"
+                                   class="btn btn-outline-dark">Обсудить</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% if no_projects_list %}
+            <h2 style="margin-top: 30px">Все проекты</h2>
+            {% for key, el in projects_list.items() %}
+                {% if key not in user_projects %}
+                    <div class="mt-5">
+                        <div class="card w-75">
+                            <div class="card-header">
+                                {{ el['creator'] }}
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ el['title'] }}</h5>
+                                <p class="card-text">{{ el['contents'] }}</p>
+                                <form method="POST" action="/projects_add">
+                                    <input type="hidden" value="{{ key }}" name="project">
+                                    <button type="submit" class="btn btn-outline-dark">Присоединиться</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

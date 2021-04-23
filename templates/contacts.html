@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+    SOOON.contacts
+{% endblock %}
+
+{% block body %}
+    <form method="POST" action="/contacts">
+        <div class="container pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-left">
+            <h1 class="display-4">Напишите</h1>
+            <p class="lead">Сюда вы можете писать свои предложения и возникшие вопросы</p>
+        </div>
+        <div class="mb-3 container">
+            <label for="exampleFormControlInput1" class="form-label">Email адрес</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Введите email">
+        </div>
+        <div class="mb-3 container">
+            <label for="exampleFormControlTextarea1" class="form-label">Содержание</label>
+            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+        </div>
+        <div class="container">
+            <button type="submit" class="btn btn-outline-dark">Отправить</button>
+        </div>
+    </form>
+{% endblock %}

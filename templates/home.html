@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+    SOOON.home
+{% endblock %}
+
+{% block body %}
+    <div class="container pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-left">
+        <h1 class="display-4">Собери свою<br>команду с SOOON</h1>
+        <p class="lead" style="margin-top: 30px">На этом сайте вы сможете собрать себе команду, или же присоединиться к
+            ней. Вместе вы сможете
+            реализовывать проекты или же совершать исследования.</p>
+    </div>
+    <div class="container mt-5">
+        <hr>
+    </div>
+    <div class="container form-inline">
+        {% if authed %}
+            <a class="btn btn-outline-dark" href="/projects" style="margin-top: 30px" role="button"><h4>Начать</h4></a>
+        {% else %}
+            <a class="btn btn-outline-dark" href="/regs" style="margin-top: 30px" role="button"><h4>Начать</h4></a>
+        {% endif %}
+        <a href="" style="margin-left: 30px; margin-top: 30px" role="button"><h5>Узнать больше</h5></a>
+    </div>
+{% endblock %}

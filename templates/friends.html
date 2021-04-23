@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+    SOON.friends
+{% endblock %}
+
+{% block body %}
+    <style>
+        .search {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #808080;
+            border-radius: 0;
+        }
+        .flex_end {
+            flex-grow: 1;
+        }
+    </style>
+    <div class="container mt-5">
+        <form class="form-inline" method="POST">
+            <div style="display: flex; margin-top: 40px">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="login" class="sr-only">Логин друга</label>
+                    <input type="text" class="search" style="width: auto; min-width: 30vw" name="login" id="login"
+                           value="{{ search }}"
+                           placeholder="Введите имя друга...">
+                </div>
+            </div>
+            <div style="display: flex; margin-left: 0px; margin-top: 30px">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search"
+                     viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </div>
+        </form>
+        <div style="margin-left: 15px">
+            {% if users %}
+                <h3 style="margin-top: 30px">Мои друзья</h3>
+            {% endif %}
+            {% for el in friends_name %}
+                {% if el in users %}
+                    <div class="card container mt-5">
+                        <div class="card-body form-inline">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                 class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+                                <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            </svg>
+                            <div style="margin-left: 10px">
+                                <h5>{{ el }}</h5>
+                            </div>
+                            <div align="right" class="flex_end">
+                                <a href="/friends_messages?second_user={{ el }}"
+                                   class="btn btn-outline-dark">Написать</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if no_friends_name %}
+                <h3 style="margin-top: 30px">Все пользователи</h3>
+                {% for el in friends_name %}
+                    {% if el not in users %}
+                        <div class="card container mt-5">
+                            <div class="card-body form-inline">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                     class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+                                    <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                </svg>
+                                <div style="margin-left: 10px">
+                                    <h5>{{ el }}</h5>
+                                </div>
+                                <div align="right" class="flex_end">
+                                    <form method="POST" action="/friends_add">
+                                        <input type="hidden" value="{{ el }}" name="friends">
+                                        <button type="submit" class="btn btn-outline-dark">Добавить в друзья</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

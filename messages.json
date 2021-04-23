@@ -1,0 +1,287 @@
+[
+  {
+    "peers": [
+      "alexas",
+      "arsen"
+    ],
+    "messages": [
+      {
+        "contents": "\u0417\u0434\u0430\u0440\u043e\u0432",
+        "user": "arsen"
+      }
+    ],
+    "type": "private"
+  },
+  {
+    "peers": [
+      "alexas",
+      "timur"
+    ],
+    "messages": [],
+    "type": "private"
+  },
+  {
+    "peers": [
+      "alexas",
+      "dan"
+    ],
+    "messages": [],
+    "type": "private"
+  },
+  {
+    "peers": [
+      "alexas",
+      "misha"
+    ],
+    "messages": [],
+    "type": "private"
+  },
+  {
+    "type": "project",
+    "peers": [
+      "alexas",
+      "kyrill",
+      "arsen",
+      "nikita"
+    ],
+    "key": "f3d8fd75fc0373b6cecf072d8e2507f07098c8e72b1adefcab6596ebc79eb7e5",
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "kyrill"
+      },
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "arsen"
+      }
+    ]
+  },
+  {
+    "type": "project",
+    "peers": [
+      "arsen",
+      "kyrill",
+      "timur",
+      "nikita"
+    ],
+    "key": "9fc0af3b2bef9dfcf0b9b91f9bd9274a4487cfc59959943165bf14206fa040cc",
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "kyrill"
+      },
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "arsen"
+      },
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442 ",
+        "user": "timur"
+      },
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "nikita"
+      },
+      {
+        "contents": "\u041f\u043e\u043a\u0430",
+        "user": "nikita"
+      }
+    ]
+  },
+  {
+    "type": "project",
+    "peers": [
+      "misha",
+      "arsen",
+      "timur",
+      "nikita"
+    ],
+    "key": "b3bb09eb4d75bc64fa2d277b9bccee0dc30bf40eca6f4a4af7a4a110598cfadc",
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "arsen"
+      },
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "timur"
+      },
+      {
+        "contents": "\u0445\u043e\u0440\u043e\u0448\u0430\u044f \u0438\u0434\u0435\u044f",
+        "user": "timur"
+      }
+    ]
+  },
+  {
+    "type": "project",
+    "peers": [
+      "raul",
+      "kyrill",
+      "nikita"
+    ],
+    "key": "3bfe1fde07b055cc436e0b4e93ff4d825bc901619645ed10f5287980ad9ec4a9",
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442 ",
+        "user": "kyrill"
+      }
+    ]
+  },
+  {
+    "type": "project",
+    "peers": [
+      "nikita",
+      "timur"
+    ],
+    "key": "9039bec72813234c9c382c85a1851a977d4b7104f293573efc3b48c45fc1b61e",
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "timur"
+      },
+      {
+        "contents": "\u0434\u0443\u043c\u0430\u044e \u0441\u0442\u043e\u0438\u0442 \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u043c\u043e\u0442\u0438\u0432\u0438\u0440\u0443\u044e\u0449\u0438\u0445 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0439",
+        "user": "timur"
+      }
+    ]
+  },
+  {
+    "type": "project",
+    "peers": [
+      "timur",
+      "arsen"
+    ],
+    "key": "201a15c339625d38f941d36a2d76a1c93ea718a50dd36b38d670df2b282d7792",
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "arsen"
+      },
+      {
+        "contents": "\u0425\u043e\u0440\u043e\u0448\u0430\u044f \u0438\u0434\u0435\u044f",
+        "user": "arsen"
+      },
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "timur"
+      },
+      {
+        "contents": "\u043d\u0443 \u0434\u0430",
+        "user": "timur"
+      }
+    ]
+  },
+  {
+    "type": "project",
+    "peers": [
+      "kirill"
+    ],
+    "key": "23c3d1fdab6b6192b366c4fe2677e878959c66b1d12ca299d7ea6e7df5a9054f",
+    "messages": []
+  },
+  {
+    "type": "project",
+    "peers": [
+      "dan",
+      "timur"
+    ],
+    "key": "1037acd8f4afaf3e1562cba420515e7982af3abbf0c09d6b37f70943ec7b55bc",
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442 ",
+        "user": "timur"
+      },
+      {
+        "contents": "\u043a\u043b\u0430\u0441\u0441\u043d\u044b\u0439 \u0441\u0430\u0439\u0442 ",
+        "user": "timur"
+      },
+      {
+        "contents": "\u0447\u0430\u0441\u0442\u043e  \u0438\u043c \u043f\u043e\u043b\u044c\u0437\u0443\u044e\u0441\u044c",
+        "user": "timur"
+      }
+    ]
+  },
+  {
+    "type": "project",
+    "peers": [
+      "kyrill"
+    ],
+    "key": "6860bbbc7ae2e0815712d9e90100a4caf39028d2aa2c329431f308895f824ea9",
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442 ",
+        "user": "kyrill"
+      }
+    ]
+  },
+  {
+    "peers": [
+      "nikita",
+      "timur"
+    ],
+    "messages": [],
+    "type": "private"
+  },
+  {
+    "peers": [
+      "nikita",
+      "raul"
+    ],
+    "messages": [],
+    "type": "private"
+  },
+  {
+    "peers": [
+      "nikita",
+      "dan"
+    ],
+    "messages": [],
+    "type": "private"
+  },
+  {
+    "peers": [
+      "nikita",
+      "arsen"
+    ],
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "nikita"
+      },
+      {
+        "contents": "\u043a\u043e\u043d\u0435\u0447\u043d\u043e",
+        "user": "arsen"
+      },
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442",
+        "user": "arsen"
+      }
+    ],
+    "type": "private"
+  },
+  {
+    "peers": [
+      "arsen",
+      "dan"
+    ],
+    "messages": [],
+    "type": "private"
+  },
+  {
+    "peers": [
+      "arsen",
+      "timur"
+    ],
+    "messages": [
+      {
+        "contents": "\u041f\u0440\u0438\u0432\u0435\u0442 ",
+        "user": "arsen"
+      },
+      {
+        "contents": "\u0442\u044b \u043a\u0440\u0443\u0442\u043e\u0439",
+        "user": "arsen"
+      }
+    ],
+    "type": "private"
+  }
+]
